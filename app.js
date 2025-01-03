@@ -20,146 +20,96 @@ let strNumTwo = '';
 let operation = 0;
 let res = 0;
 function result() {
-    switch(operation) {
-      case 1:
-        if (er()) return "Ошибка: ввдите число " ;
-        return Number(strNumTwo) + Number(strNumOne);
-        break;
-      case 2:
-        if (er()) return "Ошибка: ввдите число ";
-        return Number(strNumTwo) - Number(strNumOne);
-        break;
-      case 3:
-        if (er()) return "Ошибка: ввдите число ";
-        return Number(strNumTwo) / Number(strNumOne);
-        break;
-      case 4:
-        if (er()) return "Ошибка: ввдите число " ;
-        return Number(strNumTwo) * Number(strNumOne);
+    switch (operation) {
+        case 1:
+            if (er()) return "Ошибка: ввдите число ";
+            return Number(strNumTwo) + Number(strNumOne);
+            break;
+        case 2:
+            if (er()) return "Ошибка: ввдите число ";
+            return Number(strNumTwo) - Number(strNumOne);
+            break;
+        case 3:
+            if (er()) return "Ошибка: ввдите число ";
+            if (Number(strNumOne) === 0) {
+                return "Делить на ноль нельзя";
+            }
+            return Number(strNumTwo) / Number(strNumOne);
+            break;
+        case 4:
+            if (er()) return "Ошибка: ввдите число ";
+            return Number(strNumTwo) * Number(strNumOne);
+            break;
     }
-  }
-  
-  function er() {
+}
+function er() {
     if (strNumOne === '' || strNumTwo === '') {
-      return true;
-    }
-    if (Number(strNumOne) === 0) {
         return true;
-      }
+    }
     return false;
-  }
-zero.addEventListener("click", (event) => {
+}
+function printChisla(value) {
     const hNum = document.createElement("h1");
-    hNum.textContent = '0';
+    hNum.textContent = value;
     hNum.className = 'res-h';
     strNumOne += hNum.textContent;
+    console.log(strNumOne);
+    return divRes.appendChild(hNum);
+}
+function arithmeticOperations(value, num) {
+    const hNum = document.createElement("h1");
+    hNum.textContent = value;
+    hNum.className = 'res-h';
+    strNumTwo = strNumOne;
+    strNumOne = '';
+    operation = num;
     divRes.appendChild(hNum);
+    result();
+}
+zero.addEventListener("click", (event) => {
+    printChisla('0');
 });
 one.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '1';
-    hNum.className = 'res-h';
-    strNumOne += hNum.textContent;
-    divRes.appendChild(hNum);
+    printChisla('1');
 });
 two.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '2';
-    hNum.className = 'res-h';
-    strNumOne += hNum.textContent;
-    divRes.appendChild(hNum);
+    printChisla('2');
 });
 three.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '3';
-    hNum.className = 'res-h';
-    strNumOne += hNum.textContent;
-    divRes.appendChild(hNum);
+    printChisla('3');
 });
 four.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '4';
-    hNum.className = 'res-h';
-    strNumOne += hNum.textContent;
-    divRes.appendChild(hNum);
+    printChisla('4');
 });
 five.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '5';
-    hNum.className = 'res-h';
-    strNumOne += hNum.textContent;
-    divRes.appendChild(hNum);
+    printChisla('5');
 });
 six.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '6';
-    hNum.className = 'res-h';
-    strNumOne += hNum.textContent;
-    divRes.appendChild(hNum);
+    printChisla('6');
 });
 seven.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '7';
-    hNum.className = 'res-h';
-    strNumOne += hNum.textContent;
-    divRes.appendChild(hNum);
+    printChisla('7');
 });
 eight.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '8';
-    hNum.className = 'res-h';
-    strNumOne += hNum.textContent;
-    divRes.appendChild(hNum);
+    printChisla('8');
 });
 nine.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '9';
-    hNum.className = 'res-h';
-    strNumOne += hNum.textContent;
-    divRes.appendChild(hNum);
+    printChisla('9');
 });
 sum.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '+';
-    hNum.className = 'res-h';
-    strNumTwo = strNumOne;
-    strNumOne = '';
-    operation = 1;
-    divRes.appendChild(hNum);
-    result ();
+    arithmeticOperations('+', 1);
 });
 difference.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '-';
-    hNum.className = 'res-h';
-    strNumTwo = strNumOne;
-    strNumOne = '';
-    operation = 2;
-    divRes.appendChild(hNum);
-    result ();
+    arithmeticOperations('-', 2);
 });
 delenie.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '/';
-    hNum.className = 'res-h';
-    strNumTwo = strNumOne;
-    strNumOne = '';
-    operation = 3;
-    divRes.appendChild(hNum);
-    result ();
+    arithmeticOperations('/', 3);
 });
 proisvedenie.addEventListener("click", (event) => {
-    const hNum = document.createElement("h1");
-    hNum.textContent = '*';
-    hNum.className = 'res-h';
-    strNumTwo = strNumOne;
-    strNumOne = '';
-    operation = 4;
-    divRes.appendChild(hNum);
-    result ();
+    arithmeticOperations('*', 4);
 });
 delite.addEventListener("click", (event) => {
-     while (divRes.firstChild) {
+    while (divRes.firstChild) {
         divRes.removeChild(divRes.firstChild);
     }
     strNumOne = '';
