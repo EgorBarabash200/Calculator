@@ -19,21 +19,35 @@ let strNumOne = '';
 let strNumTwo = '';
 let operation = 0;
 let res = 0;
-function result (){
-    switch(operation){
-        case 1:
-            return Number(strNumTwo) + Number(strNumOne);
-            break;
-        case 2:
-            return Number(strNumTwo) - Number(strNumOne);
-            break;
-        case 3:
-            return Number(strNumTwo) / Number(strNumOne);
-            break;
-        case 4:
-            return Number(strNumTwo) * Number(strNumOne);
+function result() {
+    switch(operation) {
+      case 1:
+        if (er()) return "Ошибка: ввдите число " ;
+        return Number(strNumTwo) + Number(strNumOne);
+        break;
+      case 2:
+        if (er()) return "Ошибка: ввдите число ";
+        return Number(strNumTwo) - Number(strNumOne);
+        break;
+      case 3:
+        if (er()) return "Ошибка: ввдите число ";
+        return Number(strNumTwo) / Number(strNumOne);
+        break;
+      case 4:
+        if (er()) return "Ошибка: ввдите число " ;
+        return Number(strNumTwo) * Number(strNumOne);
     }
-}
+  }
+  
+  function er() {
+    if (strNumOne === '' || strNumTwo === '') {
+      return true;
+    }
+    if (Number(strNumOne) === 0) {
+        return true;
+      }
+    return false;
+  }
 zero.addEventListener("click", (event) => {
     const hNum = document.createElement("h1");
     hNum.textContent = '0';
@@ -143,6 +157,13 @@ proisvedenie.addEventListener("click", (event) => {
     operation = 4;
     divRes.appendChild(hNum);
     result ();
+});
+delite.addEventListener("click", (event) => {
+     while (divRes.firstChild) {
+        divRes.removeChild(divRes.firstChild);
+    }
+    strNumOne = '';
+    strNumTwo = '';
 });
 resEqally.addEventListener("click", (event) => {
     res = result();
